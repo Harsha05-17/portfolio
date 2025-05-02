@@ -64,7 +64,19 @@ const ProjectsSection = forwardRef<HTMLElement>(
                 
                 <div className="mt-auto">
                   <h4 className="font-medium text-[#00DDEB] dark:text-[#00DDEB] mb-2">Outcome:</h4>
-                  <p className="text-gray-300 dark:text-gray-700">{project.outcome}</p>
+                  <p className="text-gray-300 dark:text-gray-700 mb-4">{project.outcome}</p>
+                  
+                  <div className="flex justify-end">
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 text-[#B026FF] hover:text-[#54E8FF] transition-colors"
+                    >
+                      <i className="fab fa-github text-lg"></i>
+                      <span>View on GitHub</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
