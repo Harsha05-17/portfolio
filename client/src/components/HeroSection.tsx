@@ -20,6 +20,9 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
                 AI & Data Science Portfolio
               </span>
             </div>
+            <h2 className="font-poppins font-semibold text-xl md:text-2xl mb-1 text-[#54E8FF] cyan-glow dark:text-[#090621]">
+              HARSHINI B
+            </h2>
             <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 purple-glow dark:text-[#090621] tracking-tight">
               MASTERING <span className="text-[#B026FF]">AI</span><br />
               <span className="text-[#54E8FF] cyan-glow">CONCEPTS</span>

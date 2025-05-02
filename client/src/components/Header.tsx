@@ -49,7 +49,7 @@ export default function Header({ sectionRefs }: HeaderProps) {
             onClick={() => scrollToSection("home")}
             className="font-poppins font-bold text-2xl text-[#B026FF] dark:text-[#B026FF] text-glow cursor-pointer"
           >
-            Harshini B
+            AI Science
           </a>
           
           {/* Desktop Navigation */}
