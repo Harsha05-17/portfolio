@@ -44,20 +44,22 @@ export default function Header({ sectionRefs }: HeaderProps) {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center">
-          <div className="w-24"></div> {/* Empty div for spacing */}
-          
+        <div className="flex justify-between items-center w-full">
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
-            {Object.keys(sectionRefs).map((section) => (
-              <a
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="nav-link text-gray-200 dark:text-gray-800 hover:text-[#54E8FF] dark:hover:text-[#54E8FF] transition-colors duration-300 cursor-pointer"
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
-            ))}
+          <div className="flex-grow-0 w-10"></div> {/* Spacer for balance */}
+          
+          <nav className="hidden md:flex justify-center flex-grow">
+            <div className="flex space-x-10">
+              {Object.keys(sectionRefs).map((section) => (
+                <a
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="nav-link text-gray-200 dark:text-gray-800 hover:text-[#54E8FF] dark:hover:text-[#54E8FF] transition-colors duration-300 cursor-pointer px-2"
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              ))}
+            </div>
           </nav>
           
           {/* Theme Toggle Button */}

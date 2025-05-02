@@ -181,6 +181,26 @@
   .animate-spin-slow {
     animation: spin 15s linear infinite;
   }
+  
+  .typewriter {
+    overflow: hidden;
+    border-right: 3px solid #54E8FF;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: 
+      typing 4s steps(40, end),
+      blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #54E8FF }
+  }
 
   @keyframes glow {
     0% { 

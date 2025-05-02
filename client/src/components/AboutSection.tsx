@@ -12,15 +12,6 @@ const AboutSection = forwardRef<HTMLElement>(
               <p className="text-lg leading-relaxed mb-6">
                 AI & Data Science student with expertise in Generative AI, Prompt Engineering, LLMs, and AI-powered automation. Passionate about building AI applications and exploring AI tools to improve automation. Looking forward to leveraging AI automation in real-world applications and contributing to cutting-edge AI research.
               </p>
-              
-              <a 
-                href="/files/HarshiniB_resume.pdf" 
-                download="Harshini_B_Resume.pdf"
-                className="inline-flex items-center px-6 py-3 bg-[#6B5B95]/20 hover:bg-[#6B5B95]/40 border border-[#6B5B95] rounded-lg transition-colors duration-300 mb-8"
-              >
-                <i className="fas fa-download mr-2"></i> Download Resume
-              </a>
-              
               <div className="mt-6">
                 <h3 className="text-xl font-poppins font-semibold mb-4 text-[#00DDEB]">Education</h3>
                 <div className="space-y-4">

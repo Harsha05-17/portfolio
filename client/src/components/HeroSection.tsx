@@ -18,11 +18,11 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
             <h2 className="font-poppins font-semibold text-2xl md:text-3xl mb-4 text-[#54E8FF] cyan-glow dark:text-[#090621]">
               Hello, I'm
             </h2>
-            <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 purple-glow dark:text-[#090621] tracking-tight">
-              B.<span className="text-[#B026FF]">HARSHINI</span>
+            <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 tracking-tight">
+              <span className="text-[#B026FF] purple-glow">B.HARSHINI</span>
             </h1>
             <div className="h-1 w-16 bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full mb-6"></div>
-            <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl">
+            <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl typewriter">
               I'm AI innovator, generative AI specialist, prompt engineering, LLMs, and AI agent automation expert
             </h2>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
@@ -42,13 +42,16 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
             </div>
             
             <div className="mt-8 flex items-center space-x-4">
-              <div className="flex -space-x-2">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-400 border border-gray-800"></div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-300 border border-gray-800"></div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-300 to-purple-500 border border-gray-800"></div>
-              </div>
-              <div className="text-sm text-gray-400">
-                <span className="text-white">80%</span> AI Projects Completed
+              <div className="flex space-x-3">
+                <a href="https://www.linkedin.com/in/harshini-b-530904b9" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-400 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
+                  <i className="fab fa-linkedin-in text-white"></i>
+                </a>
+                <a href="https://github.com/Harshini-Bommishetti" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-300 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
+                  <i className="fab fa-github text-white"></i>
+                </a>
+                <a href="https://www.kaggle.com/bommishettiharshini" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-300 to-purple-500 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
+                  <i className="fab fa-kaggle text-white"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -58,8 +61,8 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
           </div>
         </div>
         
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <i className="fas fa-chevron-down text-[#54E8FF] text-2xl"></i>
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <i className="fas fa-chevron-down text-[#54E8FF] text-xl"></i>
         </div>
       </section>
     );
