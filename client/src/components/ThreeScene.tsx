@@ -27,180 +27,169 @@ export default function ThreeScene() {
     );
     containerRef.current.appendChild(renderer.domElement);
     
-    // Create a futuristic robot using simple geometric shapes
-    const robotGroup = new THREE.Group();
+    // Create futuristic AI neural network visualization
+    const networkGroup = new THREE.Group();
     
-    // Robot head - main part
-    const headGeometry = new THREE.SphereGeometry(0.8, 16, 16);
-    const headMaterial = new THREE.MeshPhongMaterial({ 
+    // Create a core sphere for the AI brain
+    const coreGeometry = new THREE.SphereGeometry(1.2, 32, 32);
+    const coreMaterial = new THREE.MeshPhongMaterial({ 
       color: 0x090621, 
       emissive: 0x5626FF,
-      emissiveIntensity: 0.2,
+      emissiveIntensity: 0.4,
       specular: 0x54E8FF,
-      shininess: 40,
+      shininess: 70,
       transparent: true,
-      opacity: 0.9
+      opacity: 0.8
     });
-    const head = new THREE.Mesh(headGeometry, headMaterial);
-    robotGroup.add(head);
+    const core = new THREE.Mesh(coreGeometry, coreMaterial);
+    networkGroup.add(core);
     
-    // Robot face plate
-    const faceGeometry = new THREE.CircleGeometry(0.5, 16);
-    const faceMaterial = new THREE.MeshPhongMaterial({
-      color: 0x54E8FF,
-      emissive: 0x54E8FF,
-      emissiveIntensity: 0.2,
-      transparent: true,
-      opacity: 0.7,
-      side: THREE.DoubleSide
-    });
-    const face = new THREE.Mesh(faceGeometry, faceMaterial);
-    face.position.z = 0.81;
-    robotGroup.add(face);
+    // Create neural nodes (small spheres)
+    const nodeCount = 80;
+    const nodes: THREE.Mesh[] = [];
+    const nodeGeometry = new THREE.SphereGeometry(0.06, 8, 8);
     
-    // Robot eyes
-    const eyeGeometry = new THREE.CircleGeometry(0.1, 12);
-    const eyeMaterial = new THREE.MeshBasicMaterial({
-      color: 0xB026FF,
-      side: THREE.DoubleSide
-    });
-    
-    // Left eye
-    const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
-    leftEye.position.set(-0.2, 0.1, 0.82);
-    robotGroup.add(leftEye);
-    
-    // Right eye
-    const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
-    rightEye.position.set(0.2, 0.1, 0.82);
-    robotGroup.add(rightEye);
-    
-    // Robot antennas
-    const antennaGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.5, 8);
-    const antennaMaterial = new THREE.MeshPhongMaterial({
-      color: 0x54E8FF,
-      emissive: 0x54E8FF,
-      emissiveIntensity: 0.3
-    });
-    
-    // Left antenna
-    const leftAntenna = new THREE.Mesh(antennaGeometry, antennaMaterial);
-    leftAntenna.position.set(-0.4, 0.9, 0);
-    leftAntenna.rotation.x = Math.PI * 0.1;
-    leftAntenna.rotation.z = -Math.PI * 0.1;
-    robotGroup.add(leftAntenna);
-    
-    // Right antenna
-    const rightAntenna = new THREE.Mesh(antennaGeometry, antennaMaterial);
-    rightAntenna.position.set(0.4, 0.9, 0);
-    rightAntenna.rotation.x = Math.PI * 0.1;
-    rightAntenna.rotation.z = Math.PI * 0.1;
-    robotGroup.add(rightAntenna);
-    
-    // Antenna tops (glowing spheres)
-    const antennaTipGeometry = new THREE.SphereGeometry(0.06, 8, 8);
-    const antennaTipMaterial = new THREE.MeshBasicMaterial({
-      color: 0xB026FF,
+    // Create two materials for alternating node colors
+    const nodeMaterial1 = new THREE.MeshBasicMaterial({
+      color: 0xB026FF, // Purple
       transparent: true,
       opacity: 0.9
     });
     
-    // Left tip
-    const leftTip = new THREE.Mesh(antennaTipGeometry, antennaTipMaterial);
-    leftTip.position.set(-0.46, 1.15, -0.05);
-    robotGroup.add(leftTip);
-    
-    // Right tip
-    const rightTip = new THREE.Mesh(antennaTipGeometry, antennaTipMaterial);
-    rightTip.position.set(0.46, 1.15, -0.05);
-    robotGroup.add(rightTip);
-    
-    // Robot neck
-    const neckGeometry = new THREE.CylinderGeometry(0.2, 0.3, 0.3, 16);
-    const neckMaterial = new THREE.MeshPhongMaterial({
-      color: 0x090621,
-      emissive: 0x5626FF,
-      emissiveIntensity: 0.1,
-      specular: 0x54E8FF
+    const nodeMaterial2 = new THREE.MeshBasicMaterial({
+      color: 0x54E8FF, // Cyan
+      transparent: true,
+      opacity: 0.9
     });
-    const neck = new THREE.Mesh(neckGeometry, neckMaterial);
-    neck.position.y = -0.9;
-    robotGroup.add(neck);
     
-    // Robot shoulders
-    const shoulderGeometry = new THREE.BoxGeometry(1.8, 0.4, 0.6);
-    const shoulderMaterial = new THREE.MeshPhongMaterial({
-      color: 0x090621,
-      emissive: 0x5626FF,
-      emissiveIntensity: 0.2,
-      specular: 0x54E8FF
-    });
-    const shoulders = new THREE.Mesh(shoulderGeometry, shoulderMaterial);
-    shoulders.position.y = -1.2;
-    robotGroup.add(shoulders);
-    
-    // Add decorative lines to the robot (similar to the reference image)
-    const lineGeometry = new THREE.BufferGeometry();
-    const linePositions = [
-      // Face contour lines
-      -0.3, 0.3, 0.82, 0.3, 0.3, 0.82,  // forehead
-      -0.3, -0.3, 0.82, 0.3, -0.3, 0.82, // chin
-      -0.3, 0.3, 0.82, -0.3, -0.3, 0.82, // left face
-      0.3, 0.3, 0.82, 0.3, -0.3, 0.82,   // right face
+    // Position nodes in 3D space around the core
+    for (let i = 0; i < nodeCount; i++) {
+      const material = i % 2 === 0 ? nodeMaterial1 : nodeMaterial2;
+      const node = new THREE.Mesh(nodeGeometry, material);
       
-      // Head detail lines
-      -0.5, 0.5, 0.65, 0.5, 0.5, 0.65,   // top
-      -0.6, 0, 0.65, 0.6, 0, 0.65,       // middle
-      -0.5, -0.5, 0.65, 0.5, -0.5, 0.65, // bottom
-    ];
-    
-    lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-    
-    const lineMaterial = new THREE.LineBasicMaterial({
-      color: 0x54E8FF,
-      transparent: true,
-      opacity: 0.7
-    });
-    
-    const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
-    robotGroup.add(lines);
-    
-    // Create circuit-like patterns on the robot
-    const circuitCount = 50;
-    const circuitGeometry = new THREE.BufferGeometry();
-    const circuitPositions = [];
-    
-    for (let i = 0; i < circuitCount; i++) {
-      // Create small circuit paths on the head
+      // Random position around the sphere, but some distance from the core
+      const distance = 1.5 + Math.random() * 1.3; // Between 1.5 and 2.8
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.random() * Math.PI;
       
-      const x1 = 0.8 * Math.sin(phi) * Math.cos(theta);
-      const y1 = 0.8 * Math.sin(phi) * Math.sin(theta);
-      const z1 = 0.8 * Math.cos(phi);
+      node.position.set(
+        distance * Math.sin(phi) * Math.cos(theta),
+        distance * Math.sin(phi) * Math.sin(theta),
+        distance * Math.cos(phi)
+      );
       
-      const x2 = 0.8 * Math.sin(phi) * Math.cos(theta + 0.1);
-      const y2 = 0.8 * Math.sin(phi) * Math.sin(theta + 0.1);
-      const z2 = 0.8 * Math.cos(phi);
-      
-      circuitPositions.push(x1, y1, z1, x2, y2, z2);
+      nodes.push(node);
+      networkGroup.add(node);
     }
     
-    circuitGeometry.setAttribute('position', new THREE.Float32BufferAttribute(circuitPositions, 3));
+    // Create neural connections (lines between nodes)
+    const connectionsGeometry = new THREE.BufferGeometry();
+    const connectionPositions = [];
     
-    const circuitMaterial = new THREE.LineBasicMaterial({
-      color: 0xB026FF,
+    // Create connections between nearby nodes
+    for (let i = 0; i < nodes.length; i++) {
+      const nodeA = nodes[i];
+      
+      // Connect to a few closest nodes
+      for (let j = 0; j < 3; j++) {
+        let nodeB = nodes[(i + j + 1) % nodes.length];
+        
+        connectionPositions.push(
+          nodeA.position.x, nodeA.position.y, nodeA.position.z,
+          nodeB.position.x, nodeB.position.y, nodeB.position.z
+        );
+      }
+      
+      // Also connect some nodes to the core
+      if (i % 8 === 0) {
+        connectionPositions.push(
+          nodeA.position.x, nodeA.position.y, nodeA.position.z,
+          0, 0, 0 // Core center
+        );
+      }
+    }
+    
+    connectionsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(connectionPositions, 3));
+    
+    const connectionsMaterial = new THREE.LineBasicMaterial({
+      color: 0x54E8FF,
       transparent: true,
-      opacity: 0.5
+      opacity: 0.3
     });
     
-    const circuits = new THREE.LineSegments(circuitGeometry, circuitMaterial);
-    robotGroup.add(circuits);
+    const connections = new THREE.LineSegments(connectionsGeometry, connectionsMaterial);
+    networkGroup.add(connections);
     
-    // Add the robot to the scene
-    scene.add(robotGroup);
+    // Create data flow particles
+    const flowParticlesCount = 150;
+    const flowGeometry = new THREE.BufferGeometry();
+    const flowPositions = new Float32Array(flowParticlesCount * 3);
+    const flowSizes = new Float32Array(flowParticlesCount);
+    const flowColors = new Float32Array(flowParticlesCount * 3);
     
-    // Add lights to make the robot more visible
+    for (let i = 0; i < flowParticlesCount; i++) {
+      // Random positions similar to nodes but more of them
+      const distance = 1 + Math.random() * 2;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.random() * Math.PI;
+      
+      const index = i * 3;
+      flowPositions[index] = distance * Math.sin(phi) * Math.cos(theta);
+      flowPositions[index + 1] = distance * Math.sin(phi) * Math.sin(theta);
+      flowPositions[index + 2] = distance * Math.cos(phi);
+      
+      // Random sizes
+      flowSizes[i] = Math.random() * 0.05 + 0.02;
+      
+      // Colors - mix between purple and cyan
+      const mixFactor = Math.random();
+      flowColors[index] = mixFactor * 0.69 + (1 - mixFactor) * 0.33; // R (purple to cyan)
+      flowColors[index + 1] = mixFactor * 0.15 + (1 - mixFactor) * 0.91; // G (purple to cyan)
+      flowColors[index + 2] = mixFactor * 1.0 + (1 - mixFactor) * 1.0; // B (both are bright)
+    }
+    
+    flowGeometry.setAttribute('position', new THREE.BufferAttribute(flowPositions, 3));
+    flowGeometry.setAttribute('size', new THREE.BufferAttribute(flowSizes, 1));
+    flowGeometry.setAttribute('color', new THREE.BufferAttribute(flowColors, 3));
+    
+    const flowMaterial = new THREE.PointsMaterial({
+      size: 0.05,
+      map: new THREE.TextureLoader().load('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACC0lEQVR4nO3bwW7CMBC18R9S//+P1LuR2qIY480m9vB8hxYZx/OGNuXt/f39E5qut/YH2FoGiNdeewEQW5d22WbrKllEbB9Fjx6xSQ8Y8jWZRVGEpNEAy1ZDPVkEZZEBn/vYf+p6SooIkfAnoVpvCVtFRGiAdSsrMQIkjARYAqxkn/dlXSLlP3/uOfCNtqz5COwBNPqaUoQUERYAeM9SG1JW64+MiHCvjPXmLbWXw4WIUDcB67b1PSOvPjRUAWi3rO9Z1p/x6yLSALS9Pev5rLdWRKQAcG1ZA7Stz3p1RagCpLbsk+4Zvz4ipAFS7XktTXvG+8KrIjbfo+sOLH9IbP7oDPiX7uRYFgBLm8tUXK09AAA9wxswXMBvRvRBRG/O8GcPAMADdL3+7x6QekYsxfmzRZ2Euy6BVP9XulveNQ/oMdj//bqvwR4AmPa1ZR4wPOC62+cNeAHNqQcAPP9QAADAXABeANi+HMAeAABGvxoQIGCuNygA4GmvwTAArk8B8AIAmNfjMAAeADDHnPO3RJ/0IOTy/+ydxK5FQVAY/Ru4/5WKg0AyaNIzIJqclfdMdSXdKqrtD3Bv4RDKDIBQZgCEMgMglBkAocwACGUGQCgzAEKZARDKRQMcVSOwZr8LgB5BNe27AHicXzX1rkfgcUHVtB9xCdwGXvUGvAQKE+8OBYKZI9AD3M68oAcYetwcDfgdyEJ5AfQLLWmNCDFXfI8AAAAASUVORK5CYII='),
+      vertexColors: true,
+      blending: THREE.AdditiveBlending,
+      transparent: true,
+      depthWrite: false
+    });
+    
+    const flowParticles = new THREE.Points(flowGeometry, flowMaterial);
+    networkGroup.add(flowParticles);
+    
+    // Add a halo effect around the core
+    const haloGeometry = new THREE.SphereGeometry(1.4, 32, 32);
+    const haloMaterial = new THREE.MeshBasicMaterial({
+      color: 0xB026FF,
+      transparent: true,
+      opacity: 0.15,
+      side: THREE.BackSide
+    });
+    const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+    networkGroup.add(halo);
+    
+    // Create a second outer halo with different color
+    const outerHaloGeometry = new THREE.SphereGeometry(1.8, 32, 32);
+    const outerHaloMaterial = new THREE.MeshBasicMaterial({
+      color: 0x54E8FF,
+      transparent: true,
+      opacity: 0.1,
+      side: THREE.BackSide
+    });
+    const outerHalo = new THREE.Mesh(outerHaloGeometry, outerHaloMaterial);
+    networkGroup.add(outerHalo);
+    
+    // Add the network to the scene
+    scene.add(networkGroup);
+    
+    // Add lights
     const ambientLight = new THREE.AmbientLight(0x333333);
     scene.add(ambientLight);
     
@@ -223,8 +212,8 @@ export default function ThreeScene() {
       mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
       
       // Slightly rotate based on mouse position
-      robotGroup.rotation.x = mouseY * 0.3;
-      robotGroup.rotation.y = mouseX * 0.5;
+      networkGroup.rotation.x = mouseY * 0.3;
+      networkGroup.rotation.y = mouseX * 0.5;
     };
     
     window.addEventListener('mousemove', handleMouseMove);
@@ -232,14 +221,67 @@ export default function ThreeScene() {
     const animate = () => {
       const animationId = requestAnimationFrame(animate);
       
-      // Small continuous rotation and floating effect
-      robotGroup.rotation.y += 0.005;
-      robotGroup.position.y = Math.sin(Date.now() * 0.001) * 0.1;
+      // Rotate the network
+      networkGroup.rotation.y += 0.003;
       
-      // Make antenna tips pulse
-      const pulseFactor = (Math.sin(Date.now() * 0.005) + 1) * 0.5;
-      leftTip.scale.set(1 + pulseFactor * 0.3, 1 + pulseFactor * 0.3, 1 + pulseFactor * 0.3);
-      rightTip.scale.set(1 + pulseFactor * 0.3, 1 + pulseFactor * 0.3, 1 + pulseFactor * 0.3);
+      // Pulsating effect for the core
+      const pulseFactor = (Math.sin(Date.now() * 0.001) + 1) * 0.5;
+      halo.material.opacity = 0.1 + pulseFactor * 0.1;
+      outerHalo.material.opacity = 0.05 + pulseFactor * 0.08;
+      
+      // Animate individual nodes
+      nodes.forEach((node, i) => {
+        const time = Date.now() * 0.001;
+        const offset = i * 0.1;
+        
+        // Small orbital movement
+        const orbitRadius = 0.05;
+        const orbitSpeed = 0.5 + (i % 5) * 0.1;
+        
+        node.position.x += Math.sin(time * orbitSpeed + offset) * orbitRadius * 0.01;
+        node.position.y += Math.cos(time * orbitSpeed + offset) * orbitRadius * 0.01;
+        node.position.z += Math.sin(time * orbitSpeed * 0.7 + offset) * orbitRadius * 0.01;
+        
+        // Scale pulsation for every few nodes
+        if (i % 5 === 0) {
+          const scalePulse = Math.sin(time * 2 + i) * 0.2 + 1;
+          node.scale.set(scalePulse, scalePulse, scalePulse);
+        }
+      });
+      
+      // Update data flow particles
+      const flowPositionsArray = flowGeometry.attributes.position.array as Float32Array;
+      for (let i = 0; i < flowParticlesCount; i++) {
+        const idx = i * 3;
+        
+        // Move particles inward/outward for a flowing effect
+        const time = Date.now() * 0.001;
+        const speed = 0.2 + (i % 5) * 0.05;
+        const distance = ((time * speed + i) % 3) - 0.2; // Range from -0.2 to 2.8
+        
+        // Normalized direction vector to/from center
+        const x = flowPositionsArray[idx] / Math.sqrt(
+          flowPositionsArray[idx]**2 + 
+          flowPositionsArray[idx+1]**2 + 
+          flowPositionsArray[idx+2]**2
+        );
+        const y = flowPositionsArray[idx+1] / Math.sqrt(
+          flowPositionsArray[idx]**2 + 
+          flowPositionsArray[idx+1]**2 + 
+          flowPositionsArray[idx+2]**2
+        );
+        const z = flowPositionsArray[idx+2] / Math.sqrt(
+          flowPositionsArray[idx]**2 + 
+          flowPositionsArray[idx+1]**2 + 
+          flowPositionsArray[idx+2]**2
+        );
+        
+        // Set new positions
+        flowPositionsArray[idx] = x * distance;
+        flowPositionsArray[idx+1] = y * distance;
+        flowPositionsArray[idx+2] = z * distance;
+      }
+      flowGeometry.attributes.position.needsUpdate = true;
       
       renderer.render(scene, camera);
       
@@ -274,14 +316,19 @@ export default function ThreeScene() {
       }
       
       // Dispose resources
-      headGeometry.dispose();
-      headMaterial.dispose();
-      faceGeometry.dispose();
-      faceMaterial.dispose();
-      eyeGeometry.dispose();
-      eyeMaterial.dispose();
-      lineGeometry.dispose();
-      lineMaterial.dispose();
+      coreGeometry.dispose();
+      coreMaterial.dispose();
+      nodeGeometry.dispose();
+      nodeMaterial1.dispose();
+      nodeMaterial2.dispose();
+      connectionsGeometry.dispose();
+      connectionsMaterial.dispose();
+      flowGeometry.dispose();
+      flowMaterial.dispose();
+      haloGeometry.dispose();
+      haloMaterial.dispose();
+      outerHaloGeometry.dispose();
+      outerHaloMaterial.dispose();
       renderer.dispose();
     };
   }, []);
