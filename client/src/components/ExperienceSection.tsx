@@ -10,7 +10,7 @@ const ExperienceSection = forwardRef<HTMLElement>(
         className="py-20 bg-[#1E1E2F]/50 dark:bg-gray-100/50"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-poppins font-bold text-center mb-16 text-glow text-[#00DDEB] dark:text-[#00DDEB]">Experience & Internships</h2>
+          <h2 className="text-4xl font-poppins font-bold text-center mb-16 text-glow text-[#00DDEB] dark:text-[#00DDEB]">Internships</h2>
           
           <div className="relative pl-10 md:pl-16 max-w-3xl mx-auto">
             {experienceData.map((experience, index) => (
