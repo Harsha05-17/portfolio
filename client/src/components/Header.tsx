@@ -45,12 +45,7 @@ export default function Header({ sectionRefs }: HeaderProps) {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <a 
-            onClick={() => scrollToSection("home")}
-            className="font-poppins font-bold text-2xl text-[#B026FF] dark:text-[#B026FF] text-glow cursor-pointer"
-          >
-            AI Science
-          </a>
+          <div className="w-24"></div> {/* Empty div for spacing */}
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">

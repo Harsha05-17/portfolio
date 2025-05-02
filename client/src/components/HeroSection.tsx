@@ -15,25 +15,15 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
       >
         <div className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-            <div className="mb-2">
-              <span className="inline-block px-4 py-1 text-sm font-semibold bg-[#090621] text-[#54E8FF] border border-[#54E8FF] rounded-full mb-3 cyan-glow">
-                AI & Data Science Portfolio
-              </span>
-            </div>
-            <h2 className="font-poppins font-semibold text-xl md:text-2xl mb-1 text-[#54E8FF] cyan-glow dark:text-[#090621]">
-              HARSHINI B
+            <h2 className="font-poppins font-semibold text-2xl md:text-3xl mb-4 text-[#54E8FF] cyan-glow dark:text-[#090621]">
+              Hello, I'm
             </h2>
             <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 purple-glow dark:text-[#090621] tracking-tight">
-              MASTERING <span className="text-[#B026FF]">AI</span><br />
-              <span className="text-[#54E8FF] cyan-glow">CONCEPTS</span>
+              B.<span className="text-[#B026FF]">HARSHINI</span>
             </h1>
-            <div className="flex items-center mb-6 space-x-2">
-              <div className="h-1 w-16 bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full"></div>
-              <span className="text-[#B026FF]">+</span>
-              <span className="font-light text-gray-300">AI SCIENCE</span>
-            </div>
-            <h2 className="text-xl md:text-2xl text-gray-300 dark:text-gray-700 mb-8">
-              Generative AI | Neural Networks | ML Engineering | Data Visualization
+            <div className="h-1 w-16 bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full mb-6"></div>
+            <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl">
+              I'm AI innovator, generative AI specialist, prompt engineering, LLMs, and AI agent automation expert
             </h2>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <button 
@@ -42,11 +32,13 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
               >
                 Explore My Work
               </button>
-              <button 
-                className="inline-block px-8 py-3 bg-transparent text-[#54E8FF] font-bold rounded-md border border-[#54E8FF] hover:bg-[#54E8FF]/10 transition-all duration-300"
+              <a 
+                href="/files/HarshiniB_resume.pdf" 
+                download="Harshini_B_Resume.pdf"
+                className="inline-block px-8 py-3 bg-transparent text-[#54E8FF] font-bold rounded-md border border-[#54E8FF] hover:bg-[#54E8FF]/10 transition-all duration-300 text-center"
               >
-                Contact Me
-              </button>
+                Download Resume
+              </a>
             </div>
             
             <div className="mt-8 flex items-center space-x-4">
