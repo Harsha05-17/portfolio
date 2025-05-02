@@ -189,7 +189,7 @@ export default function ThreeScene() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-[300px] h-[300px] md:w-[300px] md:h-[300px] animate-float"
+      className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px] animate-float"
     />
   );
 }

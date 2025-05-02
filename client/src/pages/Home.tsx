@@ -6,6 +6,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import CertificationsSection from "@/components/CertificationsSection";
+import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ParticlesBackground from "@/components/ParticlesBackground";
@@ -18,6 +19,7 @@ export default function Home() {
   const projectsRef = useRef<HTMLElement>(null);
   const experienceRef = useRef<HTMLElement>(null);
   const certificationsRef = useRef<HTMLElement>(null);
+  const blogRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
   
   // Mapping of section IDs to refs
@@ -28,6 +30,7 @@ export default function Home() {
     projects: projectsRef,
     experience: experienceRef,
     certifications: certificationsRef,
+    blog: blogRef,
     contact: contactRef
   };
   
@@ -53,6 +56,7 @@ export default function Home() {
         <ProjectsSection ref={projectsRef} />
         <ExperienceSection ref={experienceRef} />
         <CertificationsSection ref={certificationsRef} />
+        <BlogSection ref={blogRef} />
         <ContactSection ref={contactRef} />
       </main>
       

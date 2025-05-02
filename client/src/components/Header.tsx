@@ -47,7 +47,7 @@ export default function Header({ sectionRefs }: HeaderProps) {
         <div className="flex justify-between items-center">
           <a 
             onClick={() => scrollToSection("home")}
-            className="font-poppins font-bold text-2xl text-[#00DDEB] dark:text-[#00DDEB] text-glow cursor-pointer"
+            className="font-poppins font-bold text-2xl text-[#B026FF] dark:text-[#B026FF] text-glow cursor-pointer"
           >
             Harshini B
           </a>

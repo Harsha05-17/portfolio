@@ -33,11 +33,19 @@ export default function ParticlesBackground() {
     
     // Create particles
     for (let i = 0; i < particleCount; i++) {
+      // Create particle with either purple or cyan color to match our theme
+      const useColor = Math.random() > 0.5;
+      const color = useColor
+        // Purple color (primary)
+        ? `rgba(176, 38, 255, ${Math.random() * 0.4 + 0.1})`
+        // Cyan color (secondary)
+        : `rgba(84, 232, 255, ${Math.random() * 0.4 + 0.1})`;
+        
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 2 + 1,
-        color: `rgba(${Math.floor(Math.random() * 100)}, ${Math.floor(Math.random() * 200 + 55)}, ${Math.floor(Math.random() * 100 + 155)}, ${Math.random() * 0.5 + 0.1})`,
+        color: color,
         speedX: Math.random() * 1 - 0.5,
         speedY: Math.random() * 1 - 0.5
       });
@@ -72,8 +80,14 @@ export default function ParticlesBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
           
           if (distance < 150) {
+            const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+            
+            // Create gradient between purple and cyan
+            gradient.addColorStop(0, `rgba(176, 38, 255, ${0.15 * (1 - distance / 150)})`);
+            gradient.addColorStop(1, `rgba(84, 232, 255, ${0.15 * (1 - distance / 150)})`);
+            
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 221, 235, ${0.1 * (1 - distance / 150)})`;
+            ctx.strokeStyle = gradient;
             ctx.lineWidth = 0.5;
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
