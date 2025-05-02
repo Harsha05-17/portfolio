@@ -46,10 +46,10 @@ export default function ThreeScene() {
       positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i3 + 2] = radius * Math.cos(phi);
       
-      // Colors - cyan to purple gradient
-      colors[i3] = 0;
-      colors[i3 + 1] = 0.5 + Math.random() * 0.5; // More cyan
-      colors[i3 + 2] = 0.8 * Math.random(); // Some blue
+      // Colors - purple to cyan gradient (matching our theme)
+      colors[i3] = 0.7 * Math.random(); // Red component for purple
+      colors[i3 + 1] = 0.3 * Math.random(); // Green component
+      colors[i3 + 2] = Math.random(); // Blue component (strong for both purple and cyan)
     }
     
     particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -87,14 +87,28 @@ export default function ThreeScene() {
       linePositions[i6 + 4] = positions[endIndex + 1];
       linePositions[i6 + 5] = positions[endIndex + 2];
       
-      // Line color
-      lineColors[i6] = 0;
-      lineColors[i6 + 1] = 0.8 + Math.random() * 0.2;
-      lineColors[i6 + 2] = 0.8;
+      // Line color - purple to cyan gradient
+      const useColor = Math.random() > 0.5;
       
-      lineColors[i6 + 3] = 0;
-      lineColors[i6 + 4] = 0.8 + Math.random() * 0.2;
-      lineColors[i6 + 5] = 0.8;
+      if (useColor) {
+        // Purple (for primary color)
+        lineColors[i6] = 0.7; // Red for purple
+        lineColors[i6 + 1] = 0.1; // Low green
+        lineColors[i6 + 2] = 1.0; // Full blue
+        
+        lineColors[i6 + 3] = 0.7;
+        lineColors[i6 + 4] = 0.1;
+        lineColors[i6 + 5] = 1.0;
+      } else {
+        // Cyan (for secondary color)
+        lineColors[i6] = 0.1; // Low red
+        lineColors[i6 + 1] = 0.9; // High green
+        lineColors[i6 + 2] = 1.0; // Full blue
+        
+        lineColors[i6 + 3] = 0.1;
+        lineColors[i6 + 4] = 0.9;
+        lineColors[i6 + 5] = 1.0;
+      }
     }
     
     lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
