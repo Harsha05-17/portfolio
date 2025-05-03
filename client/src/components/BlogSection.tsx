@@ -47,8 +47,10 @@ const BlogSection = forwardRef<HTMLElement>((props, ref) => {
                 <p className="text-gray-400 mb-4 text-sm">{post.excerpt}</p>
                 <div className="flex justify-between items-center">
                   <a 
-                    href={`#blog/${post.id}`} 
+                    href="https://github.com/Harsha05-17/portfolio-article-links-"
                     className="text-[#54E8FF] font-semibold text-sm flex items-center"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Read Article
                     <svg 

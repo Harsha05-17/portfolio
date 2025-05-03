@@ -19,11 +19,12 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
               Hello, I'm
             </h2>
             <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 tracking-tight">
-              <span className="text-[#B026FF] purple-glow">B.HARSHINI</span>
+              <span className="text-white purple-glow">B.HARSHINI</span>
             </h1>
-            <div className="h-1 w-16 bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full mb-6"></div>
-            <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl typewriter">
-              I'm AI innovator, generative AI specialist, prompt engineering, LLMs, and AI agent automation expert
+            <br />
+            <div className="h-1 w-full max-w-[24rem] md:max-w-[36rem] bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full mb-6 shadow-lg"></div>
+            <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl">
+              I'm AI innovator, generative AI specialist, prompt enginnering, LLMS and AI agent automation expert
             </h2>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <button 

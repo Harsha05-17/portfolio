@@ -18,9 +18,9 @@ externalPort = 80
 runButton = "Project"
 
 [[workflows.workflow]]
-name = "Project"
+name = "Portfolio"
 mode = "parallel"
-author = "agent"
+author = "Harshini"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
@@ -28,7 +28,7 @@ args = "Start application"
 
 [[workflows.workflow]]
 name = "Start application"
-author = "agent"
+author = "Harshini"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
