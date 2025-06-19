@@ -44,13 +44,13 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
             
             <div className="mt-8 flex items-center space-x-4">
               <div className="flex space-x-3">
-                <a href="https://www.linkedin.com/in/harshini-b-530904b9" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-400 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://www.linkedin.com/in/harshini-b-95a08b28b" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-400 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
                   <i className="fab fa-linkedin-in text-white"></i>
                 </a>
-                <a href="https://github.com/Harshini-Bommishetti" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-300 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://github.com/Harsha05-17" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-300 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
                   <i className="fab fa-github text-white"></i>
                 </a>
-                <a href="https://www.kaggle.com/bommishettiharshini" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-300 to-purple-500 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
+                <a href="https://www.kaggle.com/harshinishivaniya" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-300 to-purple-500 border border-gray-800 flex items-center justify-center hover:scale-110 transition-transform">
                   <i className="fab fa-kaggle text-white"></i>
                 </a>
               </div>

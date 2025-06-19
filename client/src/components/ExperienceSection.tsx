@@ -55,7 +55,7 @@ const ExperienceSection = forwardRef<HTMLElement>(
           </div>
           <div className="text-center mt-8">
             <a
-              href="https://www.linkedin.com/in/harshini-b-530904b9"
+              href="https://www.linkedin.com/in/harshini-b-95a08b28b"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 bg-[#B026FF] text-white font-bold rounded-md hover:bg-[#9f00ff] transition-all duration-300 transform hover:scale-105 border-glow"
