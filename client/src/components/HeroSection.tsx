@@ -24,7 +24,7 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
             <br />
             <div className="h-1 w-full max-w-[24rem] md:max-w-[36rem] bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full mb-6 shadow-lg"></div>
             <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl">
-              I'm AI innovator, generative AI specialist, prompt enginnering, LLMS and AI agent automation expert
+            "Building the future with Generative AI, LLMs, and intelligent agent automation."
             </h2>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <button 

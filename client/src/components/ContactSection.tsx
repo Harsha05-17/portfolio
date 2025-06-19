@@ -66,7 +66,9 @@ const ContactSection = forwardRef<HTMLElement>(
                 
                 <div className="mt-8">
                   <a 
-                    href="mailto:harshinishivaniya@gmail.com" 
+                    href="https://wa.me/919629444918" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block px-8 py-3 bg-[#00DDEB] text-[#1E1E2F] font-bold rounded-full hover:bg-white transition-colors duration-300 transform hover:scale-105"
                   >
                     Get in Touch
