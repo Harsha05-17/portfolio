@@ -13,8 +13,8 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
         id="home" 
         className="relative min-h-screen flex flex-col justify-center items-center pt-20"
       >
-        <div className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center justify-between">
-          <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+        <div className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center justify-between ">
+          <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0 pl-8">
             <h2 className="font-poppins font-semibold text-2xl md:text-3xl mb-4 text-[#54E8FF] cyan-glow dark:text-[#090621]">
               Hello, I'm
             </h2>
