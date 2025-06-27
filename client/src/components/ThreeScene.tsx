@@ -15,7 +15,8 @@ export default function ThreeScene() {
       0.1, 
       1000
     );
-    camera.position.z = 5;
+    camera.position.set(-2.5, 0, 5); // Move camera left
+    camera.lookAt(0, 0, 0); // Look at the center
     
     const renderer = new THREE.WebGLRenderer({ 
       alpha: true, 
@@ -30,8 +31,8 @@ export default function ThreeScene() {
     // Create futuristic AI neural network visualization
     const networkGroup = new THREE.Group();
     
-    // Create a core sphere for the AI brain
-    const coreGeometry = new THREE.SphereGeometry(1.2, 32, 32);
+    // Create a core sphere for the AI brain (slightly reduced size)
+    const coreGeometry = new THREE.SphereGeometry(1.1, 32, 32);
     const coreMaterial = new THREE.MeshPhongMaterial({ 
       color: 0x090621, 
       emissive: 0x5626FF,
@@ -62,22 +63,22 @@ export default function ThreeScene() {
       opacity: 0.9
     });
     
-    // Position nodes in 3D space around the core
+    // Position nodes in 3D space evenly spread using Fibonacci sphere
+    const goldenRatio = (1 + Math.sqrt(5)) / 2;
+    const radius = 1.8; // Fixed radius for all nodes (slightly reduced size)
     for (let i = 0; i < nodeCount; i++) {
       const material = i % 2 === 0 ? nodeMaterial1 : nodeMaterial2;
       const node = new THREE.Mesh(nodeGeometry, material);
-      
-      // Random position around the sphere, but some distance from the core
-      const distance = 1.5 + Math.random() * 1.3; // Between 1.5 and 2.8
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.random() * Math.PI;
-      
+
+      const theta = 2 * Math.PI * i / goldenRatio;
+      const phi = Math.acos(1 - 2 * (i + 0.5) / nodeCount);
+
       node.position.set(
-        distance * Math.sin(phi) * Math.cos(theta),
-        distance * Math.sin(phi) * Math.sin(theta),
-        distance * Math.cos(phi)
+        radius * Math.sin(phi) * Math.cos(theta),
+        radius * Math.sin(phi) * Math.sin(theta),
+        radius * Math.cos(phi)
       );
-      
+
       nodes.push(node);
       networkGroup.add(node);
     }
@@ -164,8 +165,8 @@ export default function ThreeScene() {
     const flowParticles = new THREE.Points(flowGeometry, flowMaterial);
     networkGroup.add(flowParticles);
     
-    // Add a halo effect around the core
-    const haloGeometry = new THREE.SphereGeometry(1.4, 32, 32);
+    // Add a halo effect around the core (slightly reduced size)
+    const haloGeometry = new THREE.SphereGeometry(1.3, 32, 32);
     const haloMaterial = new THREE.MeshBasicMaterial({
       color: 0xB026FF,
       transparent: true,
@@ -175,8 +176,8 @@ export default function ThreeScene() {
     const halo = new THREE.Mesh(haloGeometry, haloMaterial);
     networkGroup.add(halo);
     
-    // Create a second outer halo with different color
-    const outerHaloGeometry = new THREE.SphereGeometry(1.8, 32, 32);
+    // Create a second outer halo with different color (slightly reduced size)
+    const outerHaloGeometry = new THREE.SphereGeometry(1.6, 32, 32);
     const outerHaloMaterial = new THREE.MeshBasicMaterial({
       color: 0x54E8FF,
       transparent: true,
@@ -188,6 +189,10 @@ export default function ThreeScene() {
     
     // Add the network to the scene
     scene.add(networkGroup);
+    
+    // Move the group to the center (shifted left and lifted up)
+    networkGroup.position.x = -1.5;
+    networkGroup.position.y = 0.5;
     
     // Add lights
     const ambientLight = new THREE.AmbientLight(0x333333);
@@ -334,9 +339,10 @@ export default function ThreeScene() {
   }, []);
   
   return (
-    <div 
-      ref={containerRef} 
-      className="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px] animate-float"
+    <div
+      ref={containerRef}
+      className="relative w-[600px] h-[600px] md:w-[800px] md:h-[800px] animate-float ml-0 self-start"
+      style={{ marginLeft: 0 }}
     />
   );
 }
