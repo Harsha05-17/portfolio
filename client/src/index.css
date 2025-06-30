@@ -8,33 +8,33 @@
   }
 
   :root {
-    --background: 240 85% 5%; /* Darker background (almost black with blue tint) */
-    --foreground: 210 20% 98%;
+    --background: 210 100% 20%; /* Dark blue background */
+    --foreground: 210 100% 10%; /* Very dark blue/black foreground */
     
-    --card: 240 85% 7%;
-    --card-foreground: 210 20% 98%;
+    --card: 210 100% 25%; /* Dark blue card background */
+    --card-foreground: 210 100% 90%; /* Light foreground on card */
     
-    --popover: 240 85% 7%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 210 100% 25%; /* Dark blue popover background */
+    --popover-foreground: 210 100% 90%; /* Light foreground on popover */
     
-    --primary: 276 100% 60%; /* Neon Purple #B026FF */
-    --primary-foreground: 240 85% 5%;
+    --primary: 210 100% 40%; /* Medium blue primary */
+    --primary-foreground: 210 100% 98%; /* Light foreground on primary */
     
-    --secondary: 192 100% 67%; /* Bright cyan #54E8FF */
-    --secondary-foreground: 240 85% 5%;
+    --secondary: 210 100% 30%; /* Darker blue secondary */
+    --secondary-foreground: 210 100% 98%; /* Light foreground on secondary */
     
-    --muted: 210 5% 40%;
-    --muted-foreground: 210 5% 70%;
+    --muted: 210 20% 40%; /* Muted dark blue */
+    --muted-foreground: 210 20% 80%; /* Muted light blue */
     
-    --accent: 342 91% 73%; /* Pink #FF6F91 */
-    --accent-foreground: 240 85% 5%;
+    --accent: 210 100% 50%; /* Bright blue accent */
+    --accent-foreground: 210 100% 98%; /* Light foreground on accent */
     
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 100% 50%; /* Red destructive */
+    --destructive-foreground: 210 100% 98%; /* Light foreground on destructive */
     
-    --border: 240 50% 30%;
-    --input: 240 50% 15%;
-    --ring: 276 100% 60%;
+    --border: 210 100% 40%; /* Dark blue border */
+    --input: 210 100% 30%; /* Dark blue input background */
+    --ring: 210 100% 40%; /* Blue ring */
     
     --radius: 0.5rem;
   }
@@ -71,7 +71,7 @@
 
   body {
     @apply font-roboto text-gray-100 overflow-x-hidden;
-    background-color: #090621; /* Darker background with blue-purple tint */
+    background-color: #0B1E4D; /* Dark blue background */
     background-image: 
       radial-gradient(circle at 30% 20%, rgba(176, 38, 255, 0.4) 0%, transparent 40%),
       radial-gradient(circle at 70% 60%, rgba(84, 232, 255, 0.4) 0%, transparent 40%),

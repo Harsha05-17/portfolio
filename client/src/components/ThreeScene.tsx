@@ -31,8 +31,8 @@ export default function ThreeScene() {
     // Create futuristic AI neural network visualization
     const networkGroup = new THREE.Group();
     
-    // Create a core sphere for the AI brain (slightly reduced size)
-    const coreGeometry = new THREE.SphereGeometry(1.1, 32, 32);
+    // Create a core sphere for the AI brain (increased size)
+    const coreGeometry = new THREE.SphereGeometry(1.0, 32, 32);
     const coreMaterial = new THREE.MeshPhongMaterial({ 
       color: 0x090621, 
       emissive: 0x5626FF,
@@ -65,7 +65,7 @@ export default function ThreeScene() {
     
     // Position nodes in 3D space evenly spread using Fibonacci sphere
     const goldenRatio = (1 + Math.sqrt(5)) / 2;
-    const radius = 1.8; // Fixed radius for all nodes (slightly reduced size)
+    const radius = 1.65; // Increased radius for all nodes
     for (let i = 0; i < nodeCount; i++) {
       const material = i % 2 === 0 ? nodeMaterial1 : nodeMaterial2;
       const node = new THREE.Mesh(nodeGeometry, material);
@@ -165,8 +165,8 @@ export default function ThreeScene() {
     const flowParticles = new THREE.Points(flowGeometry, flowMaterial);
     networkGroup.add(flowParticles);
     
-    // Add a halo effect around the core (slightly reduced size)
-    const haloGeometry = new THREE.SphereGeometry(1.3, 32, 32);
+    // Add a halo effect around the core (increased size)
+    const haloGeometry = new THREE.SphereGeometry(1.2, 32, 32);
     const haloMaterial = new THREE.MeshBasicMaterial({
       color: 0xB026FF,
       transparent: true,
@@ -176,8 +176,8 @@ export default function ThreeScene() {
     const halo = new THREE.Mesh(haloGeometry, haloMaterial);
     networkGroup.add(halo);
     
-    // Create a second outer halo with different color (slightly reduced size)
-    const outerHaloGeometry = new THREE.SphereGeometry(1.6, 32, 32);
+    // Create a second outer halo with different color (increased size)
+    const outerHaloGeometry = new THREE.SphereGeometry(1.5, 32, 32);
     const outerHaloMaterial = new THREE.MeshBasicMaterial({
       color: 0x54E8FF,
       transparent: true,
@@ -193,6 +193,7 @@ export default function ThreeScene() {
     // Move the group to the center (shifted left and lifted up)
     networkGroup.position.x = -1.5;
     networkGroup.position.y = 0.5;
+    networkGroup.scale.set(0.95, 0.95, 0.95); // Scale up the entire group slightly
     
     // Add lights
     const ambientLight = new THREE.AmbientLight(0x333333);
