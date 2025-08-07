@@ -14,12 +14,12 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
         className="relative min-h-screen flex flex-col justify-center items-center pt-20"
       >
         <div className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center justify-center max-w-6xl ml-auto space-x-10">
-          <div className="hidden md:block md:w-1/2 flex justify-center">
+          <div className="hidden md:flex md:w-1/2 justify-center">
             <ThreeScene />
           </div>
           <div className="flex flex-col items-start justify-center text-left md:w-1/2">
             <div className="mb-10">
-              <h2 className="font-poppins font-semibold text-2xl md:text-3xl mb-4 text-[#54E8FF] cyan-glow dark:text-[#090621]">
+              <h2 className="font-poppins font-semibold text-2xl md:text-3xl mb-4 text-[#54E8FF] cyan-glow">
                 Hello, I'm
               </h2>
               <h1 className="font-poppins font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 tracking-tight">
@@ -27,7 +27,7 @@ const HeroSection = forwardRef<HTMLElement, HeroSectionProps>(
               </h1>
               <br />
               <div className="h-1 w-full max-w-[24rem] md:max-w-[36rem] bg-gradient-to-r from-[#B026FF] to-[#54E8FF] rounded-full mb-6 shadow-lg"></div>
-              <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow dark:text-[#090621] max-w-2xl">
+              <h2 className="font-poppins text-xl md:text-2xl mb-8 text-[#54E8FF] cyan-glow max-w-2xl">
               "Building the future with Generative AI, LLMs, and intelligent agent automation."
               </h2>
               <div className="flex flex-col sm:flex-row justify-start space-y-3 sm:space-y-0 sm:space-x-4">

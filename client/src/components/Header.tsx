@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "@/hooks/useTheme";
 
 type HeaderProps = {
   sectionRefs: {
@@ -10,7 +9,6 @@ type HeaderProps = {
 export default function Header({ sectionRefs }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,8 +37,8 @@ export default function Header({ sectionRefs }: HeaderProps) {
 
   return (
     <header 
-      className={`fixed top-0 left-0 w-full bg-[#090621]/90 dark:bg-white/90 backdrop-blur-md z-50 transition-all duration-300 ${
-        scrolled ? "py-2 shadow-md shadow-[#B026FF]/20 dark:shadow-gray-200/50" : "py-4"
+      className={`fixed top-0 left-0 w-full bg-[#090621]/90 backdrop-blur-md z-50 transition-all duration-300 ${
+        scrolled ? "py-2 shadow-md shadow-[#B026FF]/20" : "py-4"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -54,7 +52,7 @@ export default function Header({ sectionRefs }: HeaderProps) {
                 <a
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="nav-link text-gray-200 dark:text-gray-800 hover:text-[#54E8FF] dark:hover:text-[#54E8FF] transition-colors duration-300 cursor-pointer px-2"
+                  className="nav-link text-gray-200 hover:text-[#54E8FF] transition-colors duration-300 cursor-pointer px-2"
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
@@ -62,22 +60,10 @@ export default function Header({ sectionRefs }: HeaderProps) {
             </div>
           </nav>
           
-          {/* Theme Toggle Button */}
-          <button 
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-700/50 dark:hover:bg-gray-200/50 transition-colors"
-          >
-            {theme === "light" ? (
-              <i className="fas fa-moon text-[#B026FF]"></i>
-            ) : (
-              <i className="fas fa-sun text-[#B026FF]"></i>
-            )}
-          </button>
-          
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-gray-700/50 dark:hover:bg-gray-200/50 transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-gray-700/50 transition-colors"
           >
             <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-[#54E8FF] text-xl`}></i>
           </button>
@@ -90,7 +76,7 @@ export default function Header({ sectionRefs }: HeaderProps) {
               <a
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="nav-link text-gray-200 dark:text-gray-800 hover:text-[#54E8FF] dark:hover:text-[#54E8FF] py-2 transition-colors duration-300 cursor-pointer"
+                className="nav-link text-gray-200 hover:text-[#54E8FF] py-2 transition-colors duration-300 cursor-pointer"
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>

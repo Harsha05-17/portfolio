@@ -8,7 +8,7 @@ export const skillsData: SkillCategory[] = [
   {
     name: "Programming",
     icon: "fas fa-code",
-    skills: ["Python", "Java", "R", "Kotlin", "SQL", "C"]
+    skills: ["Python", "Java", "R", "SQL", "C"]
   },
   {
     name: "Generative AI & LLMs",
@@ -21,13 +21,28 @@ export const skillsData: SkillCategory[] = [
     skills: ["TensorFlow", "PyTorch", "OpenCV", "YOLO", "Scikit-Learn"]
   },
   {
-    name: "AI Automation",
+    name: "AI Automation & Agentic AI",
     icon: "fas fa-cogs",
-    skills: ["AutoGPT", "AI Agents"]
+    skills: ["AutoGPT", "AI Agents", "BabyAGI", "CrewAI","zapier"]
   },
   {
-    name: "Other Skills",
-    icon: "fas fa-tools",
-    skills: ["Web Development", "API Integration", "UI/UX Design"]
+    name: "Industrial IoT (IIoT)",
+    icon: "fas fa-industry",
+    skills: ["Jetson Nano", "Edge Programming", "Industrial Data Acquisition", "Assembly Line Monitoring", "MQTT & Modbus", "Sensor Fusion", "Predictive Maintenance", "Secure IoT Networks"]
+  },
+  {
+    name: "Web Development",
+    icon: "fas fa-globe",
+    skills: ["HTML", "CSS", "JavaScript", "Next.js", "Tailwind CSS", "JSP", "Flask"]
+  },
+  {
+    name: "API Integration",
+    icon: "fas fa-plug",
+    skills: ["RESTful APIs", "Third-party SDKs", "FastAPI","Postman"]
+  },
+  {
+    name: "UI/UX Design",
+    icon: "fas fa-paint-brush",
+    skills: ["Responsive Design", "Prototyping", "User-Centered Interfaces"]
   }
 ];

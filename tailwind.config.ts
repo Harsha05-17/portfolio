@@ -11,6 +11,13 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        // Your brand colors
+        'brand-purple': '#B026FF',
+        'brand-cyan': '#54E8FF', 
+        'brand-navy': '#090621',
+        'brand-navy-light': '#0B1E4D',
+        
+        // Shadcn/ui colors
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

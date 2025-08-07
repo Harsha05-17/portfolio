@@ -1,9 +1,0 @@
-{
-  // ...existing code...
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
-}

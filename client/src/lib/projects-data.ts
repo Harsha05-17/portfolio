@@ -11,10 +11,10 @@ type Project = {
 
 export const projectsData: Project[] = [
   {
-    title: "AI-Powered Traffic Monitoring System",
-    description: "Automated security by detecting faces, covered features, and anomalies in real-time traffic scenarios.",
-    technologies: ["OpenCV", "YOLO", "Python", "TensorFlow", "Deep Learning"],
-    outcome: "Real-time security monitoring with advanced anomaly detection.",
+    title: "ARUCO (AI-Driven Assembly Guidance System)",
+    description: "Automated assembly assistance with real-time detection and validation.",
+    technologies: ["OpenCV", "YOLOv8", "Python", "Jetson Nano", "Computer Vision"],
+    outcome: "Reduced human error in industrial assembly processes.",
     githubUrl: "https://github.com/Harsha05-17"
   },
   {
@@ -25,25 +25,31 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/Harsha05-17"
   },
   {
-    title: "Auction AI - AI-Powered Bidding System",
-    description: "Implemented a real-time bidding platform with multi-language support and AI analytics.",
-    technologies: ["Python", "Flask", "MySQL/MongoDB", "Google Maps API"],
-    outcome: "Advanced bidding system with real-time AI-driven insights.",
+    title: "Guesthouse Management System",
+    description: "Web-based solution for managing bookings and guest records.",
+    technologies: ["Next.js", "Tailwind CSS", "JavaScript"],
+    outcome: "Streamlined booking operations and enhanced administrative efficiency.",
     githubUrl: "https://github.com/Harsha05-17"
   },
   {
-    title: "Generative AI Image Synthesis",
-    description: "Developed an AI-powered image generator for digital artwork.",
-    technologies: ["GANs", "TensorFlow", "Hugging Face", "Diffusion Models"],
-    outcome: "High-quality AI-generated artwork with customizable styles.",
+    title: "KitKart: Trolley Maintenance Management System",
+    description: "Smart platform for trolley maintenance with automated fault reporting.",
+    technologies: ["HTML", "CSS", "Javascript", "Flask", "PostgreSQL"],
+    outcome: "Reduced downtime and improved equipment reliability.",
     githubUrl: "https://github.com/Harsha05-17"
   },
   {
-    title: "HopIn - An Event-based and Intra-Campus Transportation System",
-    description: "Enabled smart ride coordination and AI-based cost splitting, reducing transport delays by 40% and improving user satisfaction to 98%.",
-    technologies: ["Next.js", "Tailwind CSS", "Node.js", "Supabase", "Mapbox API", "OpenAI GPT"],
-    outcome: "Significant improvement in campus transportation efficiency and user satisfaction.",
-    githubUrl: "https://github.com/Harsha05-17",
-    fullWidth: true
+    title: "AI-Based Clamp Detection & Monitoring System",
+    description: "Automated system for detecting and validating clamp placements.",
+    technologies: ["OpenCV", "R-CNN", "Flask", "Roboflow", "Transformers"],
+    outcome: "Accurate clamp detection and improved assembly precision.",
+    githubUrl: "https://github.com/Harsha05-17"
+  },
+  {
+    title: "Hopin - An Event-based and Intra-Campus Transportation System",
+    description: "Smart ride coordination and AI-based cost splitting platform.",
+    technologies: ["Next.js", "Tailwind CSS", "Node.js", "Supabase", "Mapbox API", "Gemini API"],
+    outcome: "Enhanced travel efficiency and reduced expenses for campus communities.",
+    githubUrl: "https://github.com/Harsha05-17"
   }
 ];

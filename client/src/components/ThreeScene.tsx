@@ -15,7 +15,7 @@ export default function ThreeScene() {
       0.1, 
       1000
     );
-    camera.position.set(-2.5, 0, 5); // Move camera left
+    camera.position.set(0, 0, 6); // Center camera position
     camera.lookAt(0, 0, 0); // Look at the center
     
     const renderer = new THREE.WebGLRenderer({ 
@@ -190,10 +190,10 @@ export default function ThreeScene() {
     // Add the network to the scene
     scene.add(networkGroup);
     
-    // Move the group to the center (shifted left and lifted up)
-    networkGroup.position.x = -1.5;
-    networkGroup.position.y = 0.5;
-    networkGroup.scale.set(0.95, 0.95, 0.95); // Scale up the entire group slightly
+    // Move the group to the center (properly positioned and sized)
+    networkGroup.position.x = 0;
+    networkGroup.position.y = 0.4;
+    networkGroup.scale.set(1.3, 1.3, 1.3); // Keep same size as requested
     
     // Add lights
     const ambientLight = new THREE.AmbientLight(0x333333);
