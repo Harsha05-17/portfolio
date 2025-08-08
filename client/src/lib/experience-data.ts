@@ -29,7 +29,7 @@ export const experienceData: Experience[] = [
     outcome: "Developed an ML model for predictive analytics."
   },
   {
-    company: "Ethernet Private Limited",
+    company: "Ether Infotech Private Limited",
     role: "Data Science Intern",
     description: "Focused on Python-based data science techniques.",
     technologies: ["Pandas", "NumPy", "Matplotlib", "Scikit-Learn"],

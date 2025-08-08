@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARSHINI Favicon Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: #090621; 
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+        canvas { 
+            background: white; 
+            border: 2px solid #B026FF; 
+            margin: 10px;
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.5);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .size-label {
+            color: #54E8FF;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .download-btn {
+            background: linear-gradient(45deg, #B026FF, #54E8FF);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #54E8FF;">HARSHINI Portfolio Favicon Generator</h1>
+    
+    <div class="container">
+        <div>
+            <div class="size-label">16x16 (Standard)</div>
+            <canvas id="favicon16" width="16" height="16"></canvas>
+        </div>
+        <div>
+            <div class="size-label">32x32 (Standard)</div>
+            <canvas id="favicon32" width="32" height="32"></canvas>
+        </div>
+        <div>
+            <div class="size-label">48x48 (High DPI)</div>
+            <canvas id="favicon48" width="48" height="48"></canvas>
+        </div>
+        <div>
+            <div class="size-label">64x64 (High DPI)</div>
+            <canvas id="favicon64" width="64" height="64"></canvas>
+        </div>
+    </div>
+    
+    <div id="downloads" style="margin-top: 20px;"></div>
+    
+    <script>
+        function createFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#090621');
+            gradient.addColorStop(1, '#1a0d3d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Add subtle glow effect
+            ctx.shadowColor = '#B026FF';
+            ctx.shadowBlur = size * 0.1;
+            
+            // Set font based on size
+            let fontSize;
+            let text;
+            if (size <= 16) {
+                fontSize = size * 0.75;
+                text = 'H';
+            } else if (size <= 32) {
+                fontSize = size * 0.4;
+                text = 'HB';
+            } else {
+                fontSize = size * 0.25;
+                text = 'HARSHINI';
+            }
+            
+            ctx.font = `bold ${fontSize}px Poppins, Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Text with gradient effect
+            const textGradient = ctx.createLinearGradient(0, 0, size, 0);
+            textGradient.addColorStop(0, '#B026FF');
+            textGradient.addColorStop(1, '#54E8FF');
+            ctx.fillStyle = textGradient;
+            
+            // Add text outline for better visibility
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.lineWidth = size * 0.02;
+            ctx.strokeText(text, size/2, size/2);
+            
+            // Fill text
+            ctx.fillText(text, size/2, size/2);
+            
+            // Reset shadow
+            ctx.shadowBlur = 0;
+            
+            return canvas;
+        }
+        
+        // Generate all favicon sizes
+        const sizes = [16, 32, 48, 64];
+        const downloadContainer = document.getElementById('downloads');
+        
+        sizes.forEach(size => {
+            const canvas = createFavicon(`favicon${size}`, size);
+            
+            // Create download link
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `favicon-${size}x${size}.png`;
+                a.textContent = `Download ${size}x${size}`;
+                a.className = 'download-btn';
+                downloadContainer.appendChild(a);
+            });
+        });
+        
+        // Generate ICO file instructions
+        setTimeout(() => {
+            const instructions = document.createElement('div');
+            instructions.style.marginTop = '20px';
+            instructions.style.padding = '15px';
+            instructions.style.background = 'rgba(176, 38, 255, 0.1)';
+            instructions.style.border = '1px solid #B026FF';
+            instructions.style.borderRadius = '5px';
+            instructions.innerHTML = `
+                <h3 style="color: #54E8FF;">Usage Instructions:</h3>
+                <p>1. Download the favicon sizes you need</p>
+                <p>2. Place them in your <code>client/public/</code> folder</p>
+                <p>3. Add this to your HTML head section:</p>
+                <pre style="background: #000; padding: 10px; border-radius: 5px; overflow-x: auto;">
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png"&gt;</pre>
+            `;
+            document.body.appendChild(instructions);
+        }, 1000);
+    </script>
+</body>
+</html>
