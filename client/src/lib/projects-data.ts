@@ -40,16 +40,16 @@ export const projectsData: Project[] = [
   },
   {
     title: "AI-Based Clamp Detection & Monitoring System",
-    description: "Automated system for detecting and validating clamp placements.",
+    description: "Automated system for detecting and validating clamp placements using advanced computer vision and deep learning models.",
     technologies: ["OpenCV", "R-CNN", "Flask", "Roboflow", "Transformers"],
-    outcome: "Accurate clamp detection and improved assembly precision.",
+    outcome: "Accurate clamp detection and real-time feedback via a web interface, reducing manual inspection efforts and improving assembly precision.",
     githubUrl: "https://github.com/Harsha05-17"
   },
   {
     title: "Hopin - An Event-based and Intra-Campus Transportation System",
-    description: "Smart ride coordination and AI-based cost splitting platform.",
+    description: "Enabled smart ride coordination and AI-based cost splitting, reducing transport delays by 40% and improving user satisfaction to 98%.",
     technologies: ["Next.js", "Tailwind CSS", "Node.js", "Supabase", "Mapbox API", "Gemini API"],
-    outcome: "Enhanced travel efficiency and reduced expenses for campus communities.",
+    outcome: "Streamlined event ride coordination through AI-powered route optimization and cost splitting, enhancing travel efficiency, reducing expenses, and simplifying ride-sharing logistics for large campus communities.",
     githubUrl: "https://github.com/Harsha05-17"
   }
 ];
